@@ -1,0 +1,1322 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Anmeldung zu den Social-Cooking-Abenden: fuenf Kuechen, freie Plaetze auf einen Blick, Anmeldung solo oder als Gruppe.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='5' fill='%23217346'/><circle cx='16' cy='16' r='9' fill='none' stroke='%23F1EFE1' stroke-width='2'/><circle cx='16' cy='16' r='3.5' fill='%23D32E5F'/></svg>">
+<style>
+  html{ -webkit-text-size-adjust:100%; }
+  :root{
+    padding-top:env(safe-area-inset-top, 0px);
+    padding-bottom:env(safe-area-inset-bottom, 0px);
+  }
+  body{ margin:0; }
+  img{ max-width:100%; }
+</style>
+<title>Zäme am Tisch</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#F1EFE1;
+    --surface:#FBFAF5;
+    --surface-2:#E8E5D3;
+    --ink:#16221B;
+    --muted:#5F6F65;
+    --line:#D2CDB7;
+    --line-strong:#B9B39A;
+    --brand:#217346;
+    --brand-deep:#17512F;
+    --brand-ink:#F1EFE1;
+    --brand-wash:#E3EBE2;
+    --accent:#D32E5F;
+    --accent-deep:#A81F48;
+    --accent-ink:#FFF4F7;
+    --accent-wash:#F7E2E8;
+    --shadow:rgba(22,34,27,.10);
+    --focus:#D32E5F;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0F1A14;
+      --surface:#17271E;
+      --surface-2:#1F3328;
+      --ink:#ECEADB;
+      --muted:#9DB1A4;
+      --line:#2B4433;
+      --line-strong:#3D5C48;
+      --brand:#43A471;
+      --brand-deep:#1B6640;
+      --brand-ink:#08130D;
+      --brand-wash:#18301F;
+      --accent:#F1527F;
+      --accent-deep:#C43460;
+      --accent-ink:#2A0512;
+      --accent-wash:#331420;
+      --shadow:rgba(0,0,0,.45);
+      --focus:#F1527F;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0F1A14;
+    --surface:#17271E;
+    --surface-2:#1F3328;
+    --ink:#ECEADB;
+    --muted:#9DB1A4;
+    --line:#2B4433;
+    --line-strong:#3D5C48;
+    --brand:#43A471;
+    --brand-deep:#1B6640;
+    --brand-ink:#08130D;
+    --brand-wash:#18301F;
+    --accent:#F1527F;
+    --accent-deep:#C43460;
+    --accent-ink:#2A0512;
+    --accent-wash:#331420;
+    --shadow:rgba(0,0,0,.45);
+    --focus:#F1527F;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  [hidden]{display:none!important}
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Public Sans","Helvetica Neue",Arial,sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .shell{
+    max-width:480px;
+    margin:0 auto;
+    padding-inline:16px;
+    padding-block:0 48px;
+  }
+
+  h1,h2,h3{
+    font-family:"Bricolage Grotesque","Public Sans",sans-serif;
+    margin:0;
+    text-wrap:balance;
+    letter-spacing:-.02em;
+  }
+
+  .eyebrow{
+    font-family:"DM Mono",ui-monospace,monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .num{font-family:"DM Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+
+  /* ---------- Kopfbereich ---------- */
+  .masthead{
+    background:var(--brand);
+    color:var(--brand-ink);
+    padding-inline:16px;
+    padding-block:26px 22px;
+    border-bottom:3px solid var(--brand-deep);
+  }
+  .masthead-inner{max-width:480px;margin:0 auto}
+  .masthead .eyebrow{color:var(--brand-ink);opacity:.72}
+  .masthead h1{
+    font-size:36px;
+    font-weight:800;
+    line-height:1.02;
+    margin-block:6px 10px;
+  }
+  .masthead p{margin:0;font-size:14px;line-height:1.55;opacity:.88;max-width:34ch}
+  .season{
+    display:inline-flex;
+    gap:8px;
+    align-items:baseline;
+    margin-top:14px;
+    padding:5px 10px;
+    border:1px solid color-mix(in srgb, var(--brand-ink) 45%, transparent);
+    border-radius:2px;
+    font-size:12px;
+    letter-spacing:.04em;
+  }
+
+  /* ---------- Übersicht ---------- */
+  .intro{
+    margin-block:22px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .intro h2{font-size:19px;font-weight:700}
+  .intro p{margin:0;font-size:14px;color:var(--muted);line-height:1.6}
+
+  .tickets{display:flex;flex-direction:column;gap:12px}
+
+  .ticket{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-left:4px solid var(--brand);
+    box-shadow:0 1px 2px var(--shadow);
+  }
+  .ticket[data-state="voll"]{border-left-color:var(--line-strong);opacity:.86}
+  .ticket[data-state="knapp"]{border-left-color:var(--accent)}
+
+  .ticket > summary{
+    list-style:none;
+    cursor:pointer;
+    padding:14px 14px 13px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    align-items:center;
+    gap:12px;
+  }
+  .ticket > summary::-webkit-details-marker{display:none}
+  .ticket > summary:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+
+  .sum-main{display:flex;flex-direction:column;gap:3px;min-width:0}
+  .kueche{font-size:23px;font-weight:700;line-height:1.1}
+  .gericht{font-size:13.5px;color:var(--muted)}
+
+  .sum-side{display:flex;align-items:center;gap:10px}
+  .frei-mini{text-align:right;line-height:1.1}
+  .frei-mini b{
+    font-family:"DM Mono",ui-monospace,monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:22px;
+    font-weight:500;
+    color:var(--brand);
+    display:block;
+  }
+  .ticket[data-state="knapp"] .frei-mini b{color:var(--accent)}
+  .ticket[data-state="voll"] .frei-mini b{color:var(--muted)}
+  .frei-mini span{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  .chev{
+    width:22px;height:22px;flex:none;
+    display:grid;place-items:center;
+    color:var(--muted);
+    transition:transform .18s ease;
+  }
+  .ticket[open] .chev{transform:rotate(180deg)}
+
+  .tear{
+    height:1px;
+    margin-inline:14px;
+    background-image:linear-gradient(90deg,var(--line-strong) 0 6px,transparent 6px 12px);
+    background-size:12px 1px;
+  }
+
+  .body{padding:14px;display:flex;flex-direction:column;gap:14px}
+
+  .facts{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:7px 14px;
+    font-size:14px;
+  }
+  .facts dt{color:var(--muted);font-size:12.5px;padding-top:1px}
+  .facts dd{margin:0}
+
+  .beschrieb{margin:0;font-size:14px;line-height:1.6;color:var(--ink)}
+
+  .pills{display:flex;flex-wrap:wrap;gap:6px}
+  .pill{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:4px 9px;
+    border-radius:2px;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.01em;
+  }
+  .pill-chef{background:var(--accent);color:var(--accent-ink)}
+  .pill-selbst{background:transparent;color:var(--muted);border:1px solid var(--line-strong)}
+  .pill-level{background:var(--brand-wash);color:var(--brand-deep);border:1px solid color-mix(in srgb,var(--brand) 28%,transparent)}
+  :root[data-theme="dark"] .pill-level,
+  :root:not([data-theme="light"]) .pill-level{color:var(--brand)}
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]) .pill-level{color:var(--brand-deep)}
+  }
+
+  .seats{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    padding:11px 12px 12px;
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+  }
+  .seats-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+  .seats-count{font-size:14px}
+  .seats-count b{
+    font-family:"DM Mono",ui-monospace,monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:19px;font-weight:500;
+    color:var(--brand);
+  }
+  .ticket[data-state="knapp"] .seats-count b{color:var(--accent)}
+  .ticket[data-state="voll"] .seats-count b{color:var(--muted)}
+  .seats-note{font-size:11.5px;letter-spacing:.02em;color:var(--muted)}
+  .ticket[data-state="knapp"] .seats-note{color:var(--accent)}
+
+  .dots{display:flex;flex-wrap:wrap;gap:4px}
+  .dot{
+    width:9px;height:9px;
+    border:1px solid var(--brand);
+    background:transparent;
+  }
+  .dot.taken{background:var(--line-strong);border-color:var(--line-strong)}
+
+  /* ---------- Knöpfe ---------- */
+  .btn{
+    font:inherit;
+    font-weight:600;
+    border:none;
+    border-radius:2px;
+    padding:13px 16px;
+    cursor:pointer;
+    text-align:center;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    min-height:48px;
+  }
+  .btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);width:100%}
+  .btn-primary:hover{background:var(--accent-deep)}
+  .btn-primary:disabled{background:var(--surface-2);color:var(--muted);cursor:not-allowed;border:1px solid var(--line)}
+  .btn-ghost{
+    background:transparent;color:var(--ink);
+    border:1px solid var(--line-strong);
+    padding:9px 12px;min-height:40px;font-weight:500;font-size:14px;
+  }
+  .btn-ghost:hover{background:var(--surface-2)}
+
+  /* ---------- Anmeldeseite ---------- */
+  .subhead{
+    background:var(--brand);
+    color:var(--brand-ink);
+    padding-inline:16px;
+    padding-block:16px 18px;
+    border-bottom:3px solid var(--brand-deep);
+  }
+  .subhead-inner{max-width:480px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+  .back{
+    background:transparent;
+    border:1px solid color-mix(in srgb,var(--brand-ink) 45%,transparent);
+    color:var(--brand-ink);
+    font:inherit;font-size:13px;
+    padding:6px 10px;border-radius:2px;cursor:pointer;
+    align-self:flex-start;
+  }
+  .back:hover{background:color-mix(in srgb,var(--brand-ink) 12%,transparent)}
+  .back:focus-visible{outline:2px solid var(--brand-ink);outline-offset:2px}
+  .subhead .eyebrow{color:var(--brand-ink);opacity:.72}
+  .subhead h2{font-size:27px;font-weight:800;line-height:1.08}
+  .subhead .meta{font-size:13px;opacity:.85}
+
+  .step{margin-block:22px 0;display:flex;flex-direction:column;gap:10px}
+  .step-title{display:flex;align-items:baseline;gap:9px}
+  .step-no{
+    font-family:"DM Mono",ui-monospace,monospace;
+    font-size:11px;color:var(--brand);
+    border:1px solid var(--brand);
+    width:20px;height:20px;flex:none;
+    display:grid;place-items:center;
+    transform:translateY(2px);
+  }
+  .step-title h3{font-size:17px;font-weight:700}
+
+  .choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .choice label{
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    padding:13px 12px;
+    cursor:pointer;
+    display:flex;flex-direction:column;gap:3px;
+    min-height:76px;
+  }
+  .choice label:hover{background:var(--surface-2)}
+  .choice input{position:absolute;opacity:0;width:0;height:0}
+  .choice label b{font-size:16px;font-weight:600}
+  .choice label small{font-size:12px;color:var(--muted);line-height:1.35}
+  .choice input:checked + span b,
+  .choice label:has(input:checked) b{color:var(--accent-ink)}
+  .choice label:has(input:checked){
+    background:var(--accent);
+    border-color:var(--accent);
+    color:var(--accent-ink);
+  }
+  .choice label:has(input:checked) small{color:var(--accent-ink);opacity:.86}
+  .choice label:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
+  .choice label:has(input:disabled){opacity:.45;cursor:not-allowed}
+
+  .stepper{
+    display:flex;align-items:center;gap:0;
+    border:1px solid var(--line-strong);
+    background:var(--surface);
+    width:max-content;
+  }
+  .stepper button{
+    font:inherit;font-size:22px;line-height:1;
+    width:48px;height:48px;flex:none;
+    background:transparent;border:none;color:var(--ink);cursor:pointer;
+  }
+  .stepper button:hover:not(:disabled){background:var(--surface-2)}
+  .stepper button:disabled{color:var(--line-strong);cursor:not-allowed}
+  .stepper button:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+  .stepper input{
+    font-family:"DM Mono",ui-monospace,monospace;
+    font-variant-numeric:tabular-nums;
+    font-size:19px;
+    width:56px;height:48px;
+    text-align:center;
+    border:none;border-inline:1px solid var(--line-strong);
+    background:transparent;color:var(--ink);
+    -moz-appearance:textfield;
+  }
+  .stepper input::-webkit-outer-spin-button,
+  .stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .stepper input:focus-visible{outline:2px solid var(--focus);outline-offset:-2px}
+
+  .field{display:flex;flex-direction:column;gap:5px}
+  .field label{font-size:13px;font-weight:600}
+  .field input{
+    font:inherit;font-size:16px;
+    padding:12px 12px;
+    background:var(--surface);
+    border:1px solid var(--line-strong);
+    border-radius:2px;
+    color:var(--ink);
+    width:100%;
+  }
+  .field input::placeholder{color:var(--muted);opacity:.7}
+  .field input:focus-visible{outline:2px solid var(--focus);outline-offset:-1px;border-color:var(--focus)}
+  .field input[aria-invalid="true"]{border-color:var(--accent);background:var(--accent-wash)}
+  .err{font-size:12.5px;color:var(--accent);font-weight:500;min-height:0}
+  .hint{font-size:12.5px;color:var(--muted)}
+
+  .fields{display:flex;flex-direction:column;gap:14px}
+
+  .summary-box{
+    margin-top:22px;
+    border:1px solid var(--line);
+    border-top:3px solid var(--brand);
+    background:var(--surface);
+    padding:13px 14px;
+    display:flex;flex-direction:column;gap:8px;
+  }
+  .summary-row{display:flex;justify-content:space-between;gap:12px;font-size:14px}
+  .summary-row span{color:var(--muted)}
+  .summary-row b{font-weight:600;text-align:right}
+
+  .notice{
+    border:1px solid var(--accent);
+    background:var(--accent-wash);
+    color:var(--accent-deep);
+    padding:10px 12px;
+    font-size:13.5px;
+    line-height:1.5;
+  }
+  :root[data-theme="dark"] .notice,
+  :root:not([data-theme="light"]) .notice{color:var(--accent)}
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]) .notice{color:var(--accent-deep)}
+  }
+
+  .actions{margin-top:18px;display:flex;flex-direction:column;gap:9px}
+
+  /* ---------- Bestätigung ---------- */
+  .done{
+    margin-top:24px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-top:6px solid var(--accent);
+    padding:20px 16px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .done h2{font-size:26px;font-weight:800;line-height:1.1}
+  .done .code{
+    font-family:"DM Mono",ui-monospace,monospace;
+    font-size:15px;letter-spacing:.08em;
+    background:var(--brand-wash);
+    border:1px dashed var(--brand);
+    color:var(--brand-deep);
+    padding:9px 11px;
+    align-self:flex-start;
+  }
+  :root[data-theme="dark"] .done .code,
+  :root:not([data-theme="light"]) .done .code{color:var(--brand)}
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]) .done .code{color:var(--brand-deep)}
+  }
+  .done p{margin:0;font-size:14px;line-height:1.6;color:var(--muted)}
+
+  /* ---------- Teilen / QR ---------- */
+  .share{
+    margin-top:26px;
+    border:1px solid var(--line);
+    border-top:3px solid var(--accent);
+    background:var(--surface);
+    padding:18px 16px 20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:12px;
+    text-align:center;
+  }
+  .share h2{font-size:21px;font-weight:700}
+  .share p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.55;max-width:32ch}
+  /* Der QR-Code bleibt in beiden Themes dunkel auf hell — das lesen Kameras am
+     zuverlässigsten, deshalb hier bewusst feste Farben statt Tokens. */
+  .qr{
+    background:#F1EFE1;
+    border:1px solid #B9B39A;
+    padding:10px;
+    width:min(232px,72vw);
+    line-height:0;
+  }
+  .qr svg{display:block;width:100%;height:auto}
+  .share-url{
+    font-family:"DM Mono",ui-monospace,monospace;
+    font-size:12px;
+    letter-spacing:.01em;
+    color:var(--ink)!important;
+    word-break:break-all;
+  }
+
+  .footer{
+    margin-top:34px;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+
+  .sync{
+    margin-top:10px;
+    font-size:11.5px;
+    color:var(--muted);
+    display:flex;align-items:center;gap:6px;
+  }
+  .sync i{width:7px;height:7px;background:var(--muted);border-radius:50%;flex:none}
+  .sync.live i{background:var(--brand)}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  }
+</style>
+</head>
+<body>
+<header class="masthead" id="masthead">
+  <div class="masthead-inner">
+    <div class="eyebrow">Social Cooking · Saison 2026</div>
+    <h1>Zäme am Tisch</h1>
+    <p>Fünf Abende, fünf Küchen. Wir kochen gemeinsam, essen gemeinsam und räumen gemeinsam auf.</p>
+    <div class="season"><span class="num">5</span><span>Abende · Oktober bis Dezember</span></div>
+  </div>
+</header>
+
+<!-- ============ Landingpage ============ -->
+<main id="view-home">
+  <div class="shell">
+    <section class="intro">
+      <h2>Wähle deinen Abend</h2>
+      <p>Tippe auf eine Küche, um Details, Chefkoch und freie Plätze zu sehen. Anmelden kannst du dich direkt im aufgeklappten Feld.</p>
+    </section>
+
+    <div class="tickets" id="tickets"></div>
+
+    <div class="sync" id="sync"><i></i><span id="sync-text">Freie Plätze werden auf diesem Gerät mitgezählt.</span></div>
+
+<section class="share">
+  <div class="eyebrow">Seite teilen</div>
+  <h2>Scan mich</h2>
+  <div class="qr">
+    <svg viewBox="0 0 41 41" xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges" role="img" aria-label="QR-Code: oeffnet die Anmeldeseite Zaeme am Tisch"><rect width="41" height="41" fill="#F1EFE1"/><path d="M4 4h7v1h-7zM12 4h1v1h-1zM14 4h1v1h-1zM16 4h1v1h-1zM19 4h3v1h-3zM25 4h1v1h-1zM27 4h1v1h-1zM30 4h7v1h-7zM4 5h1v1h-1zM10 5h1v1h-1zM13 5h4v1h-4zM20 5h2v1h-2zM23 5h1v1h-1zM25 5h2v1h-2zM28 5h1v1h-1zM30 5h1v1h-1zM36 5h1v1h-1zM4 6h1v1h-1zM6 6h3v1h-3zM10 6h1v1h-1zM16 6h2v1h-2zM26 6h3v1h-3zM30 6h1v1h-1zM32 6h3v1h-3zM36 6h1v1h-1zM4 7h1v1h-1zM6 7h3v1h-3zM10 7h1v1h-1zM12 7h2v1h-2zM16 7h1v1h-1zM18 7h1v1h-1zM21 7h5v1h-5zM30 7h1v1h-1zM32 7h3v1h-3zM36 7h1v1h-1zM4 8h1v1h-1zM6 8h3v1h-3zM10 8h1v1h-1zM12 8h2v1h-2zM15 8h2v1h-2zM18 8h1v1h-1zM22 8h4v1h-4zM28 8h1v1h-1zM30 8h1v1h-1zM32 8h3v1h-3zM36 8h1v1h-1zM4 9h1v1h-1zM10 9h1v1h-1zM12 9h3v1h-3zM18 9h1v1h-1zM20 9h1v1h-1zM23 9h1v1h-1zM25 9h2v1h-2zM30 9h1v1h-1zM36 9h1v1h-1zM4 10h7v1h-7zM12 10h1v1h-1zM14 10h1v1h-1zM16 10h1v1h-1zM18 10h1v1h-1zM20 10h1v1h-1zM22 10h1v1h-1zM24 10h1v1h-1zM26 10h1v1h-1zM28 10h1v1h-1zM30 10h7v1h-7zM12 11h1v1h-1zM19 11h3v1h-3zM25 11h1v1h-1zM28 11h1v1h-1zM4 12h1v1h-1zM8 12h1v1h-1zM10 12h3v1h-3zM14 12h3v1h-3zM21 12h1v1h-1zM23 12h11v1h-11zM36 12h1v1h-1zM4 13h1v1h-1zM7 13h1v1h-1zM12 13h3v1h-3zM16 13h4v1h-4zM22 13h1v1h-1zM27 13h1v1h-1zM29 13h1v1h-1zM33 13h3v1h-3zM4 14h2v1h-2zM8 14h3v1h-3zM12 14h1v1h-1zM14 14h1v1h-1zM16 14h1v1h-1zM19 14h1v1h-1zM21 14h1v1h-1zM24 14h6v1h-6zM33 14h1v1h-1zM35 14h1v1h-1zM4 15h1v1h-1zM8 15h1v1h-1zM12 15h2v1h-2zM16 15h1v1h-1zM18 15h1v1h-1zM21 15h5v1h-5zM27 15h2v1h-2zM35 15h1v1h-1zM5 16h1v1h-1zM7 16h1v1h-1zM10 16h1v1h-1zM13 16h1v1h-1zM16 16h4v1h-4zM22 16h3v1h-3zM28 16h1v1h-1zM30 16h4v1h-4zM4 17h2v1h-2zM7 17h3v1h-3zM12 17h4v1h-4zM17 17h1v1h-1zM20 17h2v1h-2zM23 17h1v1h-1zM25 17h5v1h-5zM31 17h1v1h-1zM33 17h2v1h-2zM4 18h2v1h-2zM7 18h8v1h-8zM16 18h2v1h-2zM20 18h2v1h-2zM23 18h1v1h-1zM25 18h1v1h-1zM27 18h1v1h-1zM29 18h2v1h-2zM32 18h1v1h-1zM35 18h1v1h-1zM4 19h6v1h-6zM11 19h1v1h-1zM13 19h1v1h-1zM16 19h2v1h-2zM21 19h1v1h-1zM23 19h5v1h-5zM29 19h2v1h-2zM33 19h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM8 20h1v1h-1zM10 20h1v1h-1zM15 20h2v1h-2zM19 20h1v1h-1zM21 20h1v1h-1zM24 20h5v1h-5zM30 20h1v1h-1zM32 20h1v1h-1zM35 20h1v1h-1zM5 21h3v1h-3zM9 21h1v1h-1zM11 21h1v1h-1zM13 21h1v1h-1zM18 21h4v1h-4zM25 21h3v1h-3zM29 21h1v1h-1zM33 21h3v1h-3zM4 22h2v1h-2zM8 22h8v1h-8zM17 22h3v1h-3zM22 22h1v1h-1zM27 22h2v1h-2zM30 22h2v1h-2zM33 22h1v1h-1zM35 22h1v1h-1zM5 23h1v1h-1zM8 23h1v1h-1zM12 23h2v1h-2zM15 23h1v1h-1zM17 23h4v1h-4zM23 23h2v1h-2zM26 23h1v1h-1zM28 23h2v1h-2zM31 23h1v1h-1zM35 23h1v1h-1zM5 24h1v1h-1zM10 24h2v1h-2zM14 24h1v1h-1zM16 24h5v1h-5zM26 24h1v1h-1zM28 24h1v1h-1zM30 24h1v1h-1zM32 24h2v1h-2zM36 24h1v1h-1zM4 25h1v1h-1zM6 25h2v1h-2zM9 25h1v1h-1zM11 25h3v1h-3zM15 25h1v1h-1zM17 25h1v1h-1zM22 25h3v1h-3zM27 25h1v1h-1zM33 25h1v1h-1zM35 25h1v1h-1zM6 26h2v1h-2zM9 26h3v1h-3zM13 26h3v1h-3zM17 26h3v1h-3zM21 26h2v1h-2zM24 26h2v1h-2zM27 26h2v1h-2zM32 26h1v1h-1zM35 26h1v1h-1zM12 27h1v1h-1zM15 27h1v1h-1zM18 27h5v1h-5zM25 27h1v1h-1zM29 27h1v1h-1zM4 28h3v1h-3zM8 28h3v1h-3zM13 28h3v1h-3zM17 28h2v1h-2zM21 28h1v1h-1zM23 28h3v1h-3zM28 28h5v1h-5zM12 29h2v1h-2zM16 29h1v1h-1zM18 29h3v1h-3zM22 29h1v1h-1zM24 29h1v1h-1zM26 29h1v1h-1zM28 29h1v1h-1zM32 29h1v1h-1zM34 29h2v1h-2zM4 30h7v1h-7zM12 30h2v1h-2zM15 30h1v1h-1zM17 30h5v1h-5zM24 30h3v1h-3zM28 30h1v1h-1zM30 30h1v1h-1zM32 30h2v1h-2zM35 30h1v1h-1zM4 31h1v1h-1zM10 31h1v1h-1zM13 31h1v1h-1zM21 31h5v1h-5zM28 31h1v1h-1zM32 31h1v1h-1zM35 31h1v1h-1zM4 32h1v1h-1zM6 32h3v1h-3zM10 32h1v1h-1zM12 32h1v1h-1zM14 32h1v1h-1zM16 32h2v1h-2zM19 32h1v1h-1zM22 32h3v1h-3zM28 32h6v1h-6zM35 32h2v1h-2zM4 33h1v1h-1zM6 33h3v1h-3zM10 33h1v1h-1zM15 33h1v1h-1zM18 33h1v1h-1zM20 33h1v1h-1zM23 33h1v1h-1zM26 33h1v1h-1zM30 33h3v1h-3zM34 33h2v1h-2zM4 34h1v1h-1zM6 34h3v1h-3zM10 34h1v1h-1zM14 34h2v1h-2zM17 34h2v1h-2zM20 34h1v1h-1zM23 34h1v1h-1zM28 34h1v1h-1zM30 34h3v1h-3zM4 35h1v1h-1zM10 35h1v1h-1zM15 35h1v1h-1zM17 35h2v1h-2zM21 35h1v1h-1zM23 35h6v1h-6zM4 36h7v1h-7zM12 36h5v1h-5zM19 36h1v1h-1zM21 36h2v1h-2zM25 36h1v1h-1zM27 36h2v1h-2zM36 36h1v1h-1z" fill="#217346"/></svg>
+  </div>
+  <p class="share-url">angelolu67.github.io/zaeme-am-tisch</p>
+  <p>Kamera draufhalten — die Anmeldung öffnet direkt im Browser, ohne App.</p>
+</section>
+
+    <div class="footer">
+      <strong>Gemeinschaftsküche Kulturhaus</strong>, Bahnhofstrasse 12, 3000 Bern<br>
+      Fragen? <a href="mailto:hallo@zaemeamtisch.ch" style="color:var(--accent)">hallo@zaemeamtisch.ch</a><br>
+      Kostenbeitrag jeweils vor Ort in bar. Abmelden bis 48 Stunden vorher.
+    </div>
+  </div>
+</main>
+
+<!-- ============ Anmeldung (Subpage) ============ -->
+<main id="view-form" hidden></main>
+
+<!-- ============ Bestätigung ============ -->
+<main id="view-done" hidden></main>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------------------------------------------------------------
+     Anlässe. Hier änderst du Daten, Plätze und Chefkoch.
+     plaetze     = Plätze total
+     belegt      = bereits belegt (Anmeldungen ausserhalb dieser Seite)
+  ----------------------------------------------------------------*/
+  var EVENTS = [
+    {
+      id:"italienisch", kueche:"Italienisch", gericht:"Pasta von Hand, Sugo aus dem Topf",
+      datum:"Freitag, 24. Oktober", zeit:"18:30 – ca. 22:30",
+      ort:"Gemeinschaftsküche Kulturhaus", beitrag:"CHF 10",
+      chef:"Marco Bianchi", chefRolle:"Chefkoch, Osteria Tre Colli",
+      level:"Für alle", plaetze:20, belegt:8,
+      text:"Wir machen Teig, drehen Orecchiette und lassen zwei Sugi lange ziehen. Wer will, lernt das Ausrollen von Hand — Marco bringt die Bretter mit."
+    },
+    {
+      id:"mexikanisch", kueche:"Mexikanisch", gericht:"Tortillas, drei Salsas, Tacos al Pastor",
+      datum:"Samstag, 8. November", zeit:"17:00 – ca. 22:00",
+      ort:"Gemeinschaftsküche Kulturhaus", beitrag:"CHF 10",
+      chef:null, chefRolle:null,
+      level:"Ohne Vorkenntnisse", plaetze:24, belegt:5,
+      text:"Kein Chefkoch, dafür eine Tortillapresse pro Zweiergruppe. Wir mahlen Mais, rösten Chilis und stellen drei Salsas nebeneinander — von mild bis ehrlich scharf."
+    },
+    {
+      id:"lokal", kueche:"Lokal", gericht:"Älplermagronen, Zwetschgenwähe",
+      datum:"Freitag, 21. November", zeit:"18:00 – ca. 22:00",
+      ort:"Gemeinschaftsküche Kulturhaus", beitrag:"CHF 10",
+      chef:"Anna Gerber", chefRolle:"Köchin, Alpwirtschaft Schwendi",
+      level:"Für alle", plaetze:18, belegt:13,
+      text:"Anna bringt Käse von drei Alpen mit und wir vergleichen, was er mit denselben Magronen macht. Dazu Wähe auf dem Blech und Apfelmus aus dem Kessel."
+    },
+    {
+      id:"japanisch", kueche:"Japanisch", gericht:"Ramen-Brühe, Gyoza falten",
+      datum:"Samstag, 6. Dezember", zeit:"17:30 – ca. 22:30",
+      ort:"Gemeinschaftsküche Kulturhaus", beitrag:"CHF 10",
+      chef:"Yuki Tanaka", chefRolle:"Chefkoch, Ramen-Bar Kōji",
+      level:"Etwas Küchenerfahrung hilft",  plaetze:16, belegt:6,
+      text:"Die Brühe köchelt schon, wenn du kommst — wir kümmern uns um Tare, Toppings und 200 Gyoza. Falten lernt jede und jeder, versprochen."
+    },
+    {
+      id:"indisch", kueche:"Indisch", gericht:"Dal, Sabzi, Naan aus dem Ofen",
+      datum:"Freitag, 19. Dezember", zeit:"18:30 – ca. 22:30",
+      ort:"Gemeinschaftsküche Kulturhaus", beitrag:"CHF 10",
+      chef:null, chefRolle:null,
+      level:"Ohne Vorkenntnisse", plaetze:22, belegt:4,
+      text:"Wir rösten die Gewürze selbst und arbeiten an vier Stationen parallel. Alles vegetarisch, vieles vegan — und Naan direkt aus dem heissen Ofen."
+    }
+  ];
+
+  var STORE_KEY = "zaeme-am-tisch-anmeldungen-v1";
+  var MAX_DOTS = 24;
+
+  /* ---------------- Zustand ---------------- */
+  var belegtLive = {};      // eventId -> zusätzlich belegte Plätze
+  var db = null;            // geteilter Speicher, sobald verfügbar
+  var lokaleAnmeldungen = ladeLokal();
+  var formState = null;     // { eventId, modus, personen }
+  var letzteAnmeldung = null;
+  var sendetGerade = false;
+
+  /* ---------------- Helfer ---------------- */
+  function findeEvent(id){
+    for (var i=0;i<EVENTS.length;i++){ if (EVENTS[i].id === id) return EVENTS[i]; }
+    return null;
+  }
+  function frei(ev){
+    var weg = ev.belegt + (belegtLive[ev.id] || 0);
+    return Math.max(0, ev.plaetze - weg);
+  }
+  function belegtTotal(ev){
+    return Math.min(ev.plaetze, ev.belegt + (belegtLive[ev.id] || 0));
+  }
+  function zustand(ev){
+    var f = frei(ev);
+    if (f === 0) return "voll";
+    if (f <= 3) return "knapp";
+    return "offen";
+  }
+  function esc(s){
+    return String(s).replace(/[&<>"']/g, function(c){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c];
+    });
+  }
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function ladeLokal(){
+    try {
+      var roh = window.localStorage.getItem(STORE_KEY);
+      var liste = roh ? JSON.parse(roh) : [];
+      return Array.isArray(liste) ? liste : [];
+    } catch (e) { return []; }
+  }
+  function speichereLokal(){
+    try { window.localStorage.setItem(STORE_KEY, JSON.stringify(lokaleAnmeldungen)); }
+    catch (e) { /* privater Modus: dann halt nur für diese Sitzung */ }
+  }
+  function summiere(liste){
+    var summe = {};
+    for (var i=0;i<liste.length;i++){
+      var r = liste[i];
+      if (!r || !r.eventId) continue;
+      var p = Number(r.personen) || 0;
+      summe[r.eventId] = (summe[r.eventId] || 0) + p;
+    }
+    return summe;
+  }
+
+  /* ---------------- Landingpage aufbauen ---------------- */
+  var ticketsBox = document.getElementById("tickets");
+
+  EVENTS.forEach(function(ev, index){
+    var d = document.createElement("details");
+    d.className = "ticket";
+    d.id = "ticket-" + ev.id;
+    if (index === 0) d.open = true;
+
+    var s = document.createElement("summary");
+    var main = el("div","sum-main");
+    main.appendChild(el("div","eyebrow","Küche"));
+    main.appendChild(el("div","kueche", ev.kueche));
+    main.appendChild(el("div","gericht", ev.gericht));
+
+    var side = el("div","sum-side");
+    var mini = el("div","frei-mini");
+    var miniB = el("b","num","0"); miniB.dataset.rolle = "mini-frei";
+    var miniS = el("span", null, "frei");
+    mini.appendChild(miniB); mini.appendChild(miniS);
+    var chev = el("div","chev");
+    chev.innerHTML = '<svg width="14" height="9" viewBox="0 0 14 9" aria-hidden="true"><path d="M1 1.5 7 7.5 13 1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    side.appendChild(mini); side.appendChild(chev);
+
+    s.appendChild(main); s.appendChild(side);
+    d.appendChild(s);
+    d.appendChild(el("div","tear"));
+
+    var body = el("div","body");
+
+    var pills = el("div","pills");
+    if (ev.chef){
+      pills.appendChild(el("span","pill pill-chef","Chefkoch vor Ort: " + ev.chef));
+    } else {
+      pills.appendChild(el("span","pill pill-selbst","Ohne Chefkoch — wir kochen selbst"));
+    }
+    pills.appendChild(el("span","pill pill-level", ev.level));
+    body.appendChild(pills);
+
+    var dl = document.createElement("dl");
+    dl.className = "facts";
+    [
+      ["Datum", ev.datum],
+      ["Zeit", ev.zeit],
+      ["Ort", ev.ort],
+      ["Beitrag", ev.beitrag],
+      ["Küchenteam", ev.chef ? ev.chef + " — " + ev.chefRolle : "Alle Teilnehmenden gemeinsam"]
+    ].forEach(function(paar){
+      dl.appendChild(el("dt", null, paar[0]));
+      dl.appendChild(el("dd", null, paar[1]));
+    });
+    body.appendChild(dl);
+
+    body.appendChild(el("p","beschrieb", ev.text));
+
+    var seats = el("div","seats");
+    var head = el("div","seats-head");
+    var cnt = el("div","seats-count");
+    var cntB = el("b","num","0"); cntB.dataset.rolle = "frei";
+    cnt.appendChild(cntB);
+    var cntRest = el("span", null, "");
+    cntRest.dataset.rolle = "frei-text";
+    cnt.appendChild(cntRest);
+    var note = el("div","seats-note"); note.dataset.rolle = "note";
+    head.appendChild(cnt); head.appendChild(note);
+    seats.appendChild(head);
+
+    var dots = el("div","dots");
+    dots.dataset.rolle = "dots";
+    dots.setAttribute("aria-hidden","true");
+    var anzahlPunkte = Math.min(ev.plaetze, MAX_DOTS);
+    for (var k=0;k<anzahlPunkte;k++){ dots.appendChild(el("span","dot")); }
+    seats.appendChild(dots);
+    body.appendChild(seats);
+
+    var btn = el("button","btn btn-primary","Anmelden");
+    btn.type = "button";
+    btn.dataset.rolle = "anmelden";
+    btn.addEventListener("click", function(){
+      navigiere("form", ev.id);
+    });
+    body.appendChild(btn);
+
+    d.appendChild(body);
+    ticketsBox.appendChild(d);
+  });
+
+  /* ---------------- Zahlen auffrischen ---------------- */
+  function aktualisiereTickets(){
+    EVENTS.forEach(function(ev){
+      var d = document.getElementById("ticket-" + ev.id);
+      if (!d) return;
+      var f = frei(ev);
+      var z = zustand(ev);
+      d.dataset.state = z;
+
+      d.querySelector('[data-rolle="mini-frei"]').textContent = f;
+      d.querySelector('[data-rolle="frei"]').textContent = f;
+      d.querySelector('[data-rolle="frei-text"]').textContent =
+        (f === 1 ? " Platz frei von " : " Plätze frei von ") + ev.plaetze;
+
+      var note = d.querySelector('[data-rolle="note"]');
+      if (z === "voll") note.textContent = "Ausgebucht";
+      else if (z === "knapp") note.textContent = "Nur noch wenige Plätze";
+      else note.textContent = belegtTotal(ev) + " angemeldet";
+
+      var dots = d.querySelector('[data-rolle="dots"]').children;
+      var skala = Math.min(ev.plaetze, MAX_DOTS) / ev.plaetze;
+      var gefuellt = Math.round(belegtTotal(ev) * skala);
+      for (var i=0;i<dots.length;i++){
+        dots[i].className = i < gefuellt ? "dot taken" : "dot";
+      }
+
+      var btn = d.querySelector('[data-rolle="anmelden"]');
+      btn.disabled = (f === 0);
+      btn.textContent = f === 0 ? "Ausgebucht" : "Anmelden";
+    });
+
+    if (formState) aktualisiereFormular();
+  }
+
+  /* ---------------- Anmeldeseite ---------------- */
+  var viewHome = document.getElementById("view-home");
+  var viewForm = document.getElementById("view-form");
+  var viewDone = document.getElementById("view-done");
+  var masthead = document.getElementById("masthead");
+
+  function baueFormular(ev){
+    viewForm.innerHTML = "";
+
+    var sub = el("header","subhead");
+    var inner = el("div","subhead-inner");
+    var back = el("button","back","← Zurück zur Übersicht");
+    back.type = "button";
+    back.addEventListener("click", function(){ navigiere("home"); });
+    inner.appendChild(back);
+    inner.appendChild(el("div","eyebrow","Anmeldung"));
+    var h2 = document.createElement("h2");
+    h2.textContent = ev.kueche;
+    inner.appendChild(h2);
+    inner.appendChild(el("div","meta", ev.datum + " · " + ev.zeit + " · " + ev.beitrag + " pro Person"));
+    sub.appendChild(inner);
+    viewForm.appendChild(sub);
+
+    var shell = el("div","form-shell");
+
+    /* Schritt 1 — Solo oder Gruppe */
+    var s1 = el("section","step");
+    var t1 = el("div","step-title");
+    t1.appendChild(el("div","step-no","1"));
+    var h31 = document.createElement("h3"); h31.textContent = "Kommst du solo oder in einer Gruppe?";
+    t1.appendChild(h31);
+    s1.appendChild(t1);
+
+    var choice = el("div","choice");
+
+    var labSolo = document.createElement("label");
+    labSolo.innerHTML =
+      '<input type="radio" name="modus" id="modus-solo" value="solo">' +
+      '<b>Solo</b><small>Ein Platz für dich</small>';
+    var labGrp = document.createElement("label");
+    labGrp.innerHTML =
+      '<input type="radio" name="modus" id="modus-gruppe" value="gruppe">' +
+      '<b>Gruppe</b><small>Zwei oder mehr Personen</small>';
+    choice.appendChild(labSolo); choice.appendChild(labGrp);
+    s1.appendChild(choice);
+
+    var errModus = el("div","err"); errModus.id = "err-modus";
+    s1.appendChild(errModus);
+
+    /* Gruppengrösse */
+    var grp = el("div","step");
+    grp.id = "gruppen-panel";
+    grp.hidden = true;
+    grp.style.marginTop = "14px";
+    var lblG = el("label", "field-label", "Wie viele Personen kommt ihr?");
+    lblG.setAttribute("for","personen");
+    lblG.style.fontSize = "13px";
+    lblG.style.fontWeight = "600";
+    grp.appendChild(lblG);
+
+    var stepper = el("div","stepper");
+    var minus = el("button", null, "−"); minus.type="button"; minus.id="minus";
+    minus.setAttribute("aria-label","Eine Person weniger");
+    var inp = document.createElement("input");
+    inp.type = "number"; inp.id = "personen"; inp.min = "2"; inp.step = "1";
+    inp.inputMode = "numeric"; inp.value = "2";
+    inp.setAttribute("aria-describedby","gruppen-hinweis");
+    var plus = el("button", null, "+"); plus.type="button"; plus.id="plus";
+    plus.setAttribute("aria-label","Eine Person mehr");
+    stepper.appendChild(minus); stepper.appendChild(inp); stepper.appendChild(plus);
+    grp.appendChild(stepper);
+
+    var hintG = el("div","hint"); hintG.id = "gruppen-hinweis";
+    grp.appendChild(hintG);
+    var errG = el("div","err"); errG.id = "err-personen";
+    grp.appendChild(errG);
+    s1.appendChild(grp);
+
+    shell.appendChild(s1);
+
+    /* Schritt 2 — Anmeldedaten */
+    var s2 = el("section","step");
+    var t2 = el("div","step-title");
+    t2.appendChild(el("div","step-no","2"));
+    var h32 = document.createElement("h3"); h32.textContent = "Deine Anmeldedaten";
+    t2.appendChild(h32);
+    s2.appendChild(t2);
+
+    var fields = el("div","fields");
+    [
+      {id:"name",     label:"Voller Name",   type:"text",  ph:"Vor- und Nachname", ac:"name"},
+      {id:"email",    label:"E-Mail",        type:"email", ph:"name@beispiel.ch",  ac:"email"},
+      {id:"telefon",  label:"Telefon",       type:"tel",   ph:"+41 79 123 45 67",  ac:"tel"}
+    ].forEach(function(f){
+      var wrap = el("div","field");
+      var lab = document.createElement("label");
+      lab.setAttribute("for", f.id);
+      lab.textContent = f.label;
+      var i = document.createElement("input");
+      i.type = f.type; i.id = f.id; i.placeholder = f.ph;
+      i.autocomplete = f.ac; i.required = true;
+      i.setAttribute("aria-describedby","err-"+f.id);
+      i.addEventListener("input", function(){
+        i.removeAttribute("aria-invalid");
+        document.getElementById("err-"+f.id).textContent = "";
+      });
+      var e = el("div","err"); e.id = "err-"+f.id;
+      wrap.appendChild(lab); wrap.appendChild(i); wrap.appendChild(e);
+      fields.appendChild(wrap);
+    });
+    s2.appendChild(fields);
+    s2.appendChild(el("div","hint","Wir brauchen alle drei Angaben, damit wir dich bei einer Absage erreichen."));
+    shell.appendChild(s2);
+
+    /* Zusammenfassung + Absenden */
+    var box = el("div","summary-box");
+    box.id = "zusammenfassung";
+    shell.appendChild(box);
+
+    var warn = el("div","notice");
+    warn.id = "form-warnung";
+    warn.hidden = true;
+    warn.style.marginTop = "12px";
+    shell.appendChild(warn);
+
+    var actions = el("div","actions");
+    var send = el("button","btn btn-primary","Anmeldung definitiv abschicken");
+    send.type = "button"; send.id = "absenden";
+    var abbr = el("button","btn btn-ghost","Abbrechen");
+    abbr.type = "button";
+    abbr.addEventListener("click", function(){ navigiere("home"); });
+    actions.appendChild(send); actions.appendChild(abbr);
+    shell.appendChild(actions);
+
+    var wrapShell = el("div","shell");
+    wrapShell.appendChild(shell);
+    viewForm.appendChild(wrapShell);
+
+    /* --- Ereignisse --- */
+    labSolo.querySelector("input").addEventListener("change", function(){
+      formState.modus = "solo";
+      formState.personen = 1;
+      errModus.textContent = "";
+      aktualisiereFormular();
+    });
+    labGrp.querySelector("input").addEventListener("change", function(){
+      formState.modus = "gruppe";
+      var max = Math.max(2, frei(findeEvent(formState.eventId)));
+      formState.personen = Math.min(Math.max(2, formState.personen || 2), max);
+      errModus.textContent = "";
+      aktualisiereFormular();
+      inp.focus();
+    });
+
+    minus.addEventListener("click", function(){ aenderePersonen(-1); });
+    plus.addEventListener("click", function(){ aenderePersonen(1); });
+    inp.addEventListener("input", function(){
+      var wert = parseInt(inp.value, 10);
+      if (!isNaN(wert)) { formState.personen = wert; }
+      document.getElementById("err-personen").textContent = "";
+      aktualisiereZusammenfassung();
+    });
+    inp.addEventListener("blur", function(){
+      var ev2 = findeEvent(formState.eventId);
+      var max = frei(ev2);
+      var wert = parseInt(inp.value, 10);
+      if (isNaN(wert) || wert < 2) wert = 2;
+      if (wert > max) wert = Math.max(2, max);
+      formState.personen = wert;
+      aktualisiereFormular();
+    });
+
+    send.addEventListener("click", absenden);
+  }
+
+  function aenderePersonen(delta){
+    var ev = findeEvent(formState.eventId);
+    var max = frei(ev);
+    var neu = (formState.personen || 2) + delta;
+    if (neu < 2) neu = 2;
+    if (neu > max) neu = max;
+    formState.personen = neu;
+    document.getElementById("err-personen").textContent = "";
+    aktualisiereFormular();
+  }
+
+  function aktualisiereFormular(){
+    var ev = findeEvent(formState.eventId);
+    if (!ev) return;
+    var f = frei(ev);
+
+    var solo = document.getElementById("modus-solo");
+    var gruppe = document.getElementById("modus-gruppe");
+    var panel = document.getElementById("gruppen-panel");
+    if (!solo || !gruppe || !panel) return;
+
+    solo.checked = (formState.modus === "solo");
+    gruppe.checked = (formState.modus === "gruppe");
+    gruppe.disabled = (f < 2);
+    panel.hidden = (formState.modus !== "gruppe");
+
+    var inp = document.getElementById("personen");
+    var minus = document.getElementById("minus");
+    var plus = document.getElementById("plus");
+    var hint = document.getElementById("gruppen-hinweis");
+
+    var max = Math.max(2, f);
+    inp.max = String(max);
+    if (formState.modus === "gruppe"){
+      if (!formState.personen || formState.personen < 2) formState.personen = 2;
+      if (formState.personen > f) formState.personen = Math.max(2, f);
+      inp.value = String(formState.personen);
+      minus.disabled = (formState.personen <= 2);
+      plus.disabled = (formState.personen >= f);
+      hint.textContent = "Mindestens 2 Personen, höchstens " + f + " — so viele Plätze sind noch frei.";
+    }
+
+    var warn = document.getElementById("form-warnung");
+    if (f === 0){
+      warn.hidden = false;
+      warn.textContent = "Dieser Abend ist inzwischen ausgebucht. Wähle bitte einen anderen Termin.";
+    } else if (f < 2){
+      warn.hidden = false;
+      warn.textContent = "Es ist nur noch 1 Platz frei — eine Gruppenanmeldung ist hier nicht mehr möglich.";
+    } else {
+      warn.hidden = true;
+      warn.textContent = "";
+    }
+
+    var send = document.getElementById("absenden");
+    send.disabled = (f === 0) || sendetGerade;
+
+    aktualisiereZusammenfassung();
+  }
+
+  function aktualisiereZusammenfassung(){
+    var ev = findeEvent(formState.eventId);
+    var box = document.getElementById("zusammenfassung");
+    if (!box || !ev) return;
+    var p = formState.modus === "gruppe" ? (parseInt(document.getElementById("personen").value,10) || 0) : (formState.modus === "solo" ? 1 : 0);
+    var preis = parseInt(String(ev.beitrag).replace(/\D/g,""),10) || 0;
+
+    box.innerHTML = "";
+    box.appendChild(el("div","eyebrow","Zusammenfassung"));
+    [
+      ["Abend", ev.kueche + " · " + ev.datum],
+      ["Personen", p ? (p + (p === 1 ? " Person" : " Personen")) : "noch nicht gewählt"],
+      ["Beitrag total", p ? ("CHF " + (preis * p)) : "—"],
+      ["Danach noch frei", p ? String(Math.max(0, frei(ev) - p)) : String(frei(ev))]
+    ].forEach(function(paar){
+      var row = el("div","summary-row");
+      row.appendChild(el("span", null, paar[0]));
+      row.appendChild(el("b", null, paar[1]));
+      box.appendChild(row);
+    });
+  }
+
+  /* ---------------- Prüfen & Absenden ---------------- */
+  function zeigeFehler(id, text){
+    var f = document.getElementById("err-" + id);
+    if (f) f.textContent = text;
+    var i = document.getElementById(id);
+    if (i && i.tagName === "INPUT") i.setAttribute("aria-invalid","true");
+  }
+
+  function absenden(){
+    if (sendetGerade) return;
+    var ev = findeEvent(formState.eventId);
+    if (!ev) return;
+
+    ["name","email","telefon","personen","modus"].forEach(function(id){
+      var f = document.getElementById("err-" + id);
+      if (f) f.textContent = "";
+      var i = document.getElementById(id);
+      if (i && i.tagName === "INPUT") i.removeAttribute("aria-invalid");
+    });
+
+    var ersterFehler = null;
+    var f = frei(ev);
+
+    if (f === 0){
+      document.getElementById("form-warnung").hidden = false;
+      document.getElementById("form-warnung").textContent = "Dieser Abend ist ausgebucht. Die Anmeldung kann nicht abgeschickt werden.";
+      return;
+    }
+
+    if (formState.modus !== "solo" && formState.modus !== "gruppe"){
+      zeigeFehler("modus","Bitte wähle aus, ob du solo oder in einer Gruppe kommst.");
+      ersterFehler = ersterFehler || document.getElementById("modus-solo");
+    }
+
+    var personen = 1;
+    if (formState.modus === "gruppe"){
+      personen = parseInt(document.getElementById("personen").value, 10);
+      if (isNaN(personen) || personen < 2){
+        zeigeFehler("personen","Für eine Gruppe braucht es mindestens 2 Personen.");
+        ersterFehler = ersterFehler || document.getElementById("personen");
+      } else if (personen > f){
+        zeigeFehler("personen","Es sind nur noch " + f + (f === 1 ? " Platz" : " Plätze") + " frei.");
+        ersterFehler = ersterFehler || document.getElementById("personen");
+      }
+    }
+
+    var name = document.getElementById("name").value.trim();
+    if (name.length < 2){
+      zeigeFehler("name","Bitte gib deinen vollen Namen an.");
+      ersterFehler = ersterFehler || document.getElementById("name");
+    }
+
+    var email = document.getElementById("email").value.trim();
+    if (!email){
+      zeigeFehler("email","Bitte gib deine E-Mail-Adresse an.");
+      ersterFehler = ersterFehler || document.getElementById("email");
+    } else if (!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email)){
+      zeigeFehler("email","Diese E-Mail-Adresse sieht nicht vollständig aus.");
+      ersterFehler = ersterFehler || document.getElementById("email");
+    }
+
+    var telefon = document.getElementById("telefon").value.trim();
+    var ziffern = telefon.replace(/\D/g,"");
+    if (!telefon){
+      zeigeFehler("telefon","Bitte gib deine Telefonnummer an.");
+      ersterFehler = ersterFehler || document.getElementById("telefon");
+    } else if (ziffern.length < 9){
+      zeigeFehler("telefon","Diese Telefonnummer sieht zu kurz aus.");
+      ersterFehler = ersterFehler || document.getElementById("telefon");
+    }
+
+    if (ersterFehler){
+      ersterFehler.focus();
+      if (ersterFehler.scrollIntoView) ersterFehler.scrollIntoView({block:"center", behavior:"smooth"});
+      return;
+    }
+
+    var anmeldung = {
+      eventId: ev.id,
+      kueche: ev.kueche,
+      modus: formState.modus,
+      personen: personen,
+      name: name,
+      email: email,
+      telefon: telefon,
+      erstellt: new Date().toISOString()
+    };
+
+    sendetGerade = true;
+    var send = document.getElementById("absenden");
+    send.disabled = true;
+    send.textContent = "Wird abgeschickt …";
+
+    speichere(anmeldung).then(function(){
+      sendetGerade = false;
+      anmeldung.code = ev.id.slice(0,3).toUpperCase() + "-" +
+        String(Math.floor(Math.random()*9000) + 1000);
+      letzteAnmeldung = anmeldung;
+      navigiere("done");
+    }).catch(function(){
+      sendetGerade = false;
+      send.disabled = false;
+      send.textContent = "Anmeldung definitiv abschicken";
+      var warn = document.getElementById("form-warnung");
+      warn.hidden = false;
+      warn.textContent = "Die Anmeldung konnte nicht gespeichert werden. Bitte versuche es gleich nochmals.";
+    });
+  }
+
+  function speichere(anmeldung){
+    if (db){
+      return db.collection("anmeldungen").add(anmeldung);
+    }
+    return new Promise(function(resolve){
+      lokaleAnmeldungen.push(anmeldung);
+      speichereLokal();
+      belegtLive = summiere(lokaleAnmeldungen);
+      aktualisiereTickets();
+      resolve();
+    });
+  }
+
+  /* ---------------- Bestätigung ---------------- */
+  function baueBestaetigung(){
+    var a = letzteAnmeldung;
+    var ev = findeEvent(a.eventId);
+    viewDone.innerHTML = "";
+
+    var sub = el("header","subhead");
+    var inner = el("div","subhead-inner");
+    inner.appendChild(el("div","eyebrow","Angemeldet"));
+    var h2 = document.createElement("h2");
+    h2.textContent = "Bis bald in der Küche";
+    inner.appendChild(h2);
+    sub.appendChild(inner);
+    viewDone.appendChild(sub);
+
+    var box = el("div","done");
+    var h = document.createElement("h2");
+    h.textContent = ev.kueche;
+    box.appendChild(h);
+
+    var dl = document.createElement("dl");
+    dl.className = "facts";
+    [
+      ["Datum", ev.datum],
+      ["Zeit", ev.zeit],
+      ["Ort", ev.ort],
+      ["Personen", a.personen + (a.personen === 1 ? " Person" : " Personen")],
+      ["Angemeldet", a.name],
+      ["Kontakt", a.email + " · " + a.telefon],
+      ["Beitrag", "CHF " + ((parseInt(String(ev.beitrag).replace(/\D/g,""),10) || 0) * a.personen) + " (bar vor Ort)"]
+    ].forEach(function(paar){
+      dl.appendChild(el("dt", null, paar[0]));
+      dl.appendChild(el("dd", null, paar[1]));
+    });
+    box.appendChild(dl);
+
+    box.appendChild(el("div","code","Anmeldung " + a.code));
+    box.appendChild(el("p", null,
+      "Deine Plätze sind reserviert. Für diesen Abend sind jetzt noch " + frei(ev) +
+      (frei(ev) === 1 ? " Platz" : " Plätze") + " frei. Wir melden uns eine Woche vorher mit der Einkaufsliste."));
+
+    var zurueck = el("button","btn btn-primary","Zurück zur Übersicht");
+    zurueck.type = "button";
+    zurueck.addEventListener("click", function(){ navigiere("home"); });
+    box.appendChild(zurueck);
+
+    var doneShell = el("div","shell");
+    doneShell.appendChild(box);
+    viewDone.appendChild(doneShell);
+  }
+
+  /* ---------------- Routing ---------------- */
+  function zeige(view){
+    viewHome.hidden = (view !== "home");
+    viewForm.hidden = (view !== "form");
+    viewDone.hidden = (view !== "done");
+    masthead.hidden = (view !== "home");
+  }
+
+  function setzeHash(ziel){
+    try {
+      if (window.location.hash !== ziel) window.location.hash = ziel;
+    } catch (e) { /* Umgebungen ohne Hash-Navigation: Ansicht wird trotzdem gewechselt */ }
+  }
+
+  function navigiere(ansicht, param){
+    if (ansicht === "form"){
+      var ev = findeEvent(param);
+      if (!ev) return navigiere("home");
+      if (!formState || formState.eventId !== ev.id){
+        formState = { eventId: ev.id, modus: null, personen: 2 };
+        sendetGerade = false;
+        baueFormular(ev);
+      }
+      aktualisiereFormular();
+      zeige("form");
+      window.scrollTo(0,0);
+      setzeHash("#/anmelden/" + ev.id);
+      return;
+    }
+
+    if (ansicht === "done" && letzteAnmeldung){
+      baueBestaetigung();
+      zeige("done");
+      window.scrollTo(0,0);
+      setzeHash("#/bestaetigt");
+      return;
+    }
+
+    formState = null;
+    zeige("home");
+    setzeHash("#/");
+  }
+
+  function route(){
+    var h = window.location.hash || "#/";
+    var teile = h.replace(/^#\/?/, "").split("/");
+    if (teile[0] === "anmelden" && teile[1]) return navigiere("form", teile[1]);
+    if (teile[0] === "bestaetigt" && letzteAnmeldung) return navigiere("done");
+    navigiere("home");
+  }
+
+  /* ---------------- Geteilter Speicher ---------------- */
+  var syncBox = document.getElementById("sync");
+  var syncText = document.getElementById("sync-text");
+
+  function setzeSync(livemodus, text){
+    syncBox.className = livemodus ? "sync live" : "sync";
+    syncText.textContent = text;
+  }
+
+  function starteSpeicher(){
+    var hat = (typeof window.claude !== "undefined" && window.claude && typeof window.claude.use === "function");
+    if (!hat){
+      setzeSync(false, "Anmeldungen werden nur auf diesem Gerät gezählt.");
+      return;
+    }
+    window.claude.use("db").then(function(instanz){
+      if (!instanz){
+        setzeSync(false, "Anmeldungen werden nur auf diesem Gerät gezählt.");
+        return;
+      }
+      db = instanz;
+      db.collection("anmeldungen").onSnapshot(function(snap){
+        var liste = snap.docs.map(function(d){ return d.data(); });
+        belegtLive = summiere(liste);
+        setzeSync(true, "Freie Plätze werden live aktualisiert.");
+        aktualisiereTickets();
+      }, function(){
+        db = null;
+        belegtLive = summiere(lokaleAnmeldungen);
+        setzeSync(false, "Verbindung unterbrochen — Zählung nur auf diesem Gerät.");
+        aktualisiereTickets();
+      });
+    }).catch(function(){
+      setzeSync(false, "Anmeldungen werden nur auf diesem Gerät gezählt.");
+    });
+  }
+
+  /* ---------------- Start ---------------- */
+  belegtLive = summiere(lokaleAnmeldungen);
+  aktualisiereTickets();
+  window.addEventListener("hashchange", route);
+  route();
+  starteSpeicher();
+})();
+</script>
+
+</body>
+</html>
